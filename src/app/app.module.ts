@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [FormsModule, BrowserModule, RouterModule.forRoot(routes)],
+  imports: [FormsModule,ReactiveFormsModule ,BrowserModule, RouterModule.forRoot(routes)],
   bootstrap: [],
 })
 export class AppModule {

@@ -1,7 +1,6 @@
 // customer-list.component.ts
 import { Component, OnInit, Inject } from '@angular/core';
 import { CustomerService } from './customer.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-customer-list',

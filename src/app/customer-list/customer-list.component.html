@@ -1,1 +1,48 @@
-<p>customer-list works!</p>
+<!-- customer-list.component.html -->
+<header>
+  <nav class="navigation">
+    <button routerLink="room-list">Rooms</button>
+    <button routerLink="feature-list">Features</button>
+    <button routerLink="serve-list">Services</button>
+    <button routerLink="customer-list">Customers</button>
+    <button routerLink="reservation-list ">All Reservations</button>
+    <button routerLink="reservation-serve-list">Reservations Services</button>
+  </nav>
+</header>
+<div class="container">
+  <div>
+    <label>Customers</label>
+    <div>
+      <label>Searching by Name:</label>
+      <input [(ngModel)]="searchTerm" placeholder="Enter customer name" />
+      <button (click)="searchCustomers()">Search</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Identity Number</th>
+          <th>Phone Number</th>
+          <th>Birth Date</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.fullName }}</td>
+          <td>{{ customer.identityNumber }}</td>
+          <td>{{ customer.phoneNumber }}</td>
+          <td>{{ customer.birthDate }}</td>
+          <td>{{ customer.description }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <button routerLink="/new-customer">Add New Customer</button>
+    <button routerLink="/customers-Edit">Edit</button>
+    <button routerLink="/customers-Delete">Delete</button>
+  </div>
+</div>

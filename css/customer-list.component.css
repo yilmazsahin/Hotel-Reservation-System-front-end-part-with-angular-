@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: "Arial Rounded MT Bold", sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background-color: #4f0184;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.navigation {
+  display: flex;
+  background-color: #aef1bc;
+}
+.navigation .nav-button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #4993be;
+  background-color: transparent;
+  color: #4993be;
+  cursor: pointer;
+}
+.navigation .nav-button.active {
+  background-color: #FF4B4B;
+  color: white;
+}
+
+.content {
+  padding: 20px;
+}
+.content h2 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.content .search-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.content .search-box label {
+  margin-right: 25px;
+}
+.content .search-box input {
+  height: 25px;
+  margin-right: 10px;
+}
+.content .search-box button {
+  cursor: pointer;
+}
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.content table th, .content table td {
+  border: 1px solid #e6dcd7;
+  padding: 8px;
+  text-align: left;
+}
+.content table th {
+  background-color: #e6dcd7;
+}
+.content .action-button {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 10px;
+}

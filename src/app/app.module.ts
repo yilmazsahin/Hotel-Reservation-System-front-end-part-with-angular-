@@ -12,6 +12,7 @@ import { ServeListComponent } from './serve-list/serve-list.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { ReservationServeListComponent } from './reservation-serve-list/reservation-serve-list.component';
 import { CheckoutListComponent } from './checkout-list/checkout-list.component';
+import { AppComponent } from './app.component';
 const routes: Routes = [
   { path: 'new-customer', component: NewCustomerComponent },
   { path: 'edit-customer/:id', component: EditCustomerComponent },
@@ -27,8 +28,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [FormsModule,ReactiveFormsModule ,BrowserModule, RouterModule.forRoot(routes)],
-  bootstrap: [],
+  imports: [
+    AppComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    RouterModule.forRoot(routes),
+  ],
+  bootstrap: [CustomerListComponent],
 })
 export class AppModule {
   ngDoBootstrap() {}

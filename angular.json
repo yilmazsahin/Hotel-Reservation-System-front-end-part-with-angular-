@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/angular-otel-reservation",
-            "index": "src/index.html",
+            "index": "src/app/customer-list/customer-list.component.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"

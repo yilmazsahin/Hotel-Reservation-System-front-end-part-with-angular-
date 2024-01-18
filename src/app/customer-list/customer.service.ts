@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerService {
-  private apiUrl = 'http://localhost:8080/api/customers';
+  private apiUrl = environment.apiUrl + '/customers';
 
   constructor(private http: HttpClient) {}
 
   getCustomers(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<any[]>(`${this.apiUrl}/getAll`);
   }
   getCustomerById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}${id}`);

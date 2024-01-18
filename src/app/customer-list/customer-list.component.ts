@@ -1,6 +1,9 @@
 // customer-list.component.ts
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CustomerService } from './customer.service';
+import { Observable } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-customer-list',
@@ -8,7 +11,7 @@ import { CustomerService } from './customer.service';
   styleUrls: ['./customer-list.component.scss'],
 })
 export class CustomerListComponent implements OnInit {
-  customers: any[] = [];
+  customers$: Observable<any[]> | undefined;
   searchTerm: string = '';
   editedCustomer: any = null;
 
@@ -19,13 +22,11 @@ export class CustomerListComponent implements OnInit {
   }
 
   fetchCustomers(): void {
-    this.customerService.getCustomers().subscribe(
-      (data) => {
-        this.customers = data;
-      },
-      (error) => {
+    this.customers$ = this.customerService.getCustomers().pipe(
+      catchError((error) => {
         console.error('Error fetching customers: ', error);
-      }
+        throw error;
+      })
     );
   }
 
@@ -33,14 +34,15 @@ export class CustomerListComponent implements OnInit {
     if (this.searchTerm.trim() === '') {
       this.fetchCustomers();
     } else {
-      this.customerService.searchCustomers(this.searchTerm).subscribe(
-        (result) => {
-          this.customers = result;
-        },
-        (error) => {
-          console.error('Error searching customers:', error);
-        }
-      );
+      this.customers$ = this.customerService
+        .searchCustomers(this.searchTerm)
+        .pipe(
+          switchMap((result: any) => of(result)),
+          catchError((error) => {
+            console.error('Error searching customers:', error);
+            return of([]);
+          })
+        );
     }
   }
 

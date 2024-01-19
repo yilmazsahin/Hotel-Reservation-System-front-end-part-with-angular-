@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+header {
+  nav.navigation {
+    display: flex;
+    background-color: #aef1bc;
+
+    button {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #4993be;
+      background-color: transparent;
+      color: #4993be;
+      cursor: pointer;
+
+      &.active {
+        background-color: #FF4B4B;
+        color: white;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+flex-direction: row;
+  align-items: center;
+
+  label {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    label {
+      margin-right: 25px;
+    }
+
+    input {
+      height: 25px;
+      margin-right: 10px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    th, td {
+      border: 1px solid #e6dcd7;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e6dcd7;
+    }
+  }
+
+  button {
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 10px;
+  }
+
+}

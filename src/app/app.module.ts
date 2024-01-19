@@ -13,6 +13,7 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { ReservationServeListComponent } from './reservation-serve-list/reservation-serve-list.component';
 import { CheckoutListComponent } from './checkout-list/checkout-list.component';
 import { AppComponent } from './app.component';
+import { AppCustomerListComponent } from './customer-list/app-customer-list.component';
 const routes: Routes = [
   { path: 'new-customer', component: NewCustomerComponent },
   { path: 'edit-customer/:id', component: EditCustomerComponent },
@@ -27,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [CustomerListComponent, AppCustomerListComponent],
   imports: [
     AppComponent,
     FormsModule,

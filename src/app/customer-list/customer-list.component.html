@@ -8,10 +8,10 @@
     <button routerLink="reservation-serve-list">Reservations Services</button>
   </nav>
 </header>
-<div class="container">
-  <div>
-    <label>Customers</label>
-    <div>
+<div>
+  <label>Customers</label>
+  <div class="container">
+    <div class="search-area">
       <label>Searching by Name:</label>
       <input placeholder="Enter customer name" />
       <button (click)="searchCustomers()">Search</button>
@@ -28,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customers">
+        <tr *ngFor="let customer of customers$ | async">
           <td>{{ customer.id }}</td>
           <td>{{ customer.fullName }}</td>
           <td>{{ customer.identityNumber }}</td>
